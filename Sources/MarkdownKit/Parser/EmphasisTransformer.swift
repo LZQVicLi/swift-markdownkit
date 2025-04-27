@@ -41,6 +41,7 @@ open class EmphasisTransformer: InlineTransformer {
             self.special = special
             self.factory = factory
         }
+
     }
   
   /// Emphasis supported by default. Override this property to change the what gets
