@@ -31,11 +31,17 @@ open class EmphasisTransformer: InlineTransformer {
   /// be marked as "special"), and `factory` to a closure constructing the text fragment
   /// from two parameters: the first denoting whether it's double usage, and the second
   /// referring to the emphasized text.
-  public struct Emphasis {
-    let ch: Character
-    let special: Bool
-    let factory: (Bool, Text) -> TextFragment
-  }
+    public struct Emphasis {
+        public let ch: Character
+        public let special: Bool
+        public let factory: (Bool, Text) -> TextFragment
+        
+        public init(ch: Character, special: Bool, factory: @escaping (Bool, Text) -> TextFragment) {
+            self.ch = ch
+            self.special = special
+            self.factory = factory
+        }
+    }
   
   /// Emphasis supported by default. Override this property to change the what gets
   /// supported.
